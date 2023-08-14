@@ -10,11 +10,13 @@
 ## RUNNING DOCKER 
 
 - docker-compose up --build -d
+- docker-compose run --rm laravel-migrate-seed
+- docker-compose run --rm artisan migrate
 - docker-compose run --rm composer install
+- docker-compose run --rm composer dump-autoload
 - docker-compose run --rm npm install
 - docker-compose run --rm npm run build 
 - npm run dev 
-
 
 ## About Laravel
 
