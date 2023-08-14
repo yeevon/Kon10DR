@@ -16,8 +16,12 @@ services:
     container_name: nginx
     ports:
       - 8000:8000
+      - 3000:3000
+    expose:
+      - 8000
+      - 3000
     volumes:
-      - ./ :/var/www/html
+      - ./:/var/www/html
       - .env:/var/www/html/.env
     depends_on:
       - php
@@ -42,30 +46,30 @@ services:
     ports:
       - ":9000"
     volumes:
-      - ./ :/var/www/html
+      - ./:/var/www/html
       - .env:/var/www/html/.env
     networks:
       - laravel
 
   mysql:
-    image: mysql:8
+    image: mariadb:10.6
     container_name: mysql
     restart: unless-stopped
     tty: true
     ports:
-      - 3310:3306
+      - 3307:3306
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USERNAME}
       MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
       - ./docker/mysql:/var/lib/mysql
     networks:
       - laravel
-
+    
   redis:
     image: redis:alpine
     container_name: redis
@@ -85,7 +89,7 @@ services:
         - USER=${USER:-laravel}
     container_name: laravel-cron
     volumes:
-      - ./ :/var/www/html
+      - ./:/var/www/html
       - .env:/var/www/html/.env
     depends_on:
       - mysql
@@ -104,7 +108,7 @@ services:
         - USER=${USER:-laravel}
     container_name: laravel-queue
     volumes:
-      - ./ :/var/www/html
+      - ./:/var/www/html
       - .env:/var/www/html/.env
     depends_on:
       - mysql
@@ -116,7 +120,7 @@ services:
   mailhog:
     image: mailhog/mailhog:latest
     container_name: mailhog
-    logging:
+    logging: 
       driver: 'none'
     ports:
       - 1025:1025
@@ -150,7 +154,7 @@ services:
         - USER=${USER:-laravel}
     container_name: laravel-migrate-seed
     volumes:
-      - . :/var/www/html
+      - ./:/var/www/html
       - .env:/var/www/html/.env
     depends_on:
       - mysql
@@ -158,9 +162,9 @@ services:
     working_dir: /var/www/html
     entrypoint: ["/bin/sh","-c"]
     command:
-      - |
-        php artisan migrate
-        php artisan db:seed
+    - |
+      php artisan migrate
+      php artisan db:seed
     networks:
       - laravel
 
@@ -174,7 +178,7 @@ services:
         - USER=${USER:-laravel}
     container_name: composer
     volumes:
-      - ./ :/var/www/html
+      - ./:/var/www/html
       - .env:/var/www/html/.env
     working_dir: /var/www/html
     depends_on:
@@ -195,7 +199,7 @@ services:
         - USER=${USER:-laravel}
     container_name: artisan
     volumes:
-      - ./ :/var/www/html
+      - ./:/var/www/html
       - .env:/var/www/html/.env
     depends_on:
       - mysql
@@ -209,11 +213,14 @@ services:
     image: node:alpine
     container_name: npm
     volumes:
-      - ./ :/var/www/html
+      - ./:/var/www/html
       - .env:/var/www/html/.env
     ports:
       - 3000:3000
       - 3001:3001
+    expose:
+      - 8000
+      - 3000
     working_dir: /var/www/html
     profiles: ["npm"]
     entrypoint: ['npm']
