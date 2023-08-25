@@ -1,5 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
+import dashboard2 from "../../images/dashboard2.jpeg";
 
 export default function Dashboard({ auth }) {
     return (
@@ -15,10 +16,37 @@ export default function Dashboard({ auth }) {
 
             <div className="py-4 sm:py-12 bg-dark-grey">
                 <div className="px-4 sm:max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    {/* Slideshow/Carousel */}
-                    <div className="mb-4 sm:mb-8 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="bg-gray-800 p-4 sm:p-6 text-white">
-                            Carousel Here
+                    {/* Single Image with Overlay */}
+                    <div className="relative w-full mx-auto h-1/2">
+                        <img
+                            src={dashboard2}
+                            alt="Dashboard Image"
+                            className="w-full h-full object-cover"
+                        />
+                        <div
+                            style={{
+                                border: "1px solid lightblue",
+                                // backgroundColor: "rgba(255, 255, 255, 0.4)",
+                                backdropFilter: "blur(5px)",
+                            }}
+                            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-24 w-3/4 text-center z-10 rounded-lg" // Increased padding and width for a bigger box
+                        >
+                            <h2 style={{ color: "orange" }}>
+                                Your Ultimate Esports Destination
+                            </h2>
+                            <p
+                                style={{
+                                    color: "white",
+                                    fontSize: "1.5em",
+                                    fontWeight: "bold",
+                                }}
+                            >
+                                KON1ODR.COM
+                            </p>{" "}
+                            <p style={{ color: "white" }}>
+                                Every Champion was once a Kon10dr so start your
+                                Esports career here
+                            </p>
                         </div>
                     </div>
 
