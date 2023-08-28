@@ -40,7 +40,7 @@ services:
         - USER=${USER:-laravel}
     container_name: php
     ports:
-      - ":9000"
+      - "9000:9000"
     volumes:
       - ./ :/var/www/html
       - .env:/var/www/html/.env
@@ -53,7 +53,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - 3310:3306
+      - 3306:3306
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USERNAME}
