@@ -24,6 +24,7 @@ RUN echo "php_admin_flag[log_errors] = on" >> /usr/local/etc/php-fpm.d/www.conf
 # Install required packages
 RUN apk update && apk upgrade
 RUN apk add --no-cache \
+    openssl \
     libzip-dev \
     libcurl \
     curl-dev \
@@ -38,7 +39,7 @@ RUN apk add --no-cache \
 
 # Configure and install php extensions using docker-php-ext-install
 RUN docker-php-ext-configure zip
-RUN docker-php-ext-install pdo pdo_mysql bcmath curl fileinfo mbstring zip openssl mysqli
+RUN docker-php-ext-install pdo pdo_mysql bcmath curl fileinfo mbstring zip mysqli
 
 # Install redis extension
 COPY phpredis-5.3.4.tar.gz /usr/src/php/ext/redis/phpredis-5.3.4.tar.gz
