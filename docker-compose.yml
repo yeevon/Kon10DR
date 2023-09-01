@@ -48,7 +48,6 @@ services:
       volumes:
         - ./:/var/www/html
         - .env:/var/www/html/.env
-        - ./php.ini:/usr/local/etc/php/php.ini
       networks:
         - laravel
 
