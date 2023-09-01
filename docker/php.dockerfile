@@ -37,7 +37,6 @@ RUN apk add --no-cache \
     autoconf 
 
 # Configure and install php extensions using docker-php-ext-install
-RUN docker-php-ext-configure zip
 RUN docker-php-ext-install pdo pdo_mysql bcmath curl fileinfo mbstring zip mysqli
 
 # Install redis extension
