@@ -34,7 +34,14 @@ RUN apk add --no-cache \
     gcc \
     g++ \
     make \
-    autoconf 
+    autoconf \
+    php81-pdo_mysql \
+    php81-mbstring \
+    php81-bcmath \
+    php81-fileinfo \
+    php81-pdo \
+    php81-mysqli \
+    php81-zip
 
 # Configure and install php extensions using docker-php-ext-install
 RUN docker-php-ext-install pdo pdo_mysql bcmath curl fileinfo mbstring zip mysqli
