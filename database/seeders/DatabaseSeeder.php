@@ -61,11 +61,11 @@ class DatabaseSeeder extends Seeder
             DB::table('user_profile')->insert([
               'member_id' => $columns[0] ?? '',
               'email' => $columns[1] ?? '',
-              'first_name' => $columns[10] ?? '',
-              'last_name' => $columns[11] ?? '',
-              'dob' => $formattedDate ?? '',
-              'phone_no' => $columns['phone'] ?? '',
-              'country' => $columns[15] ?? '',
+              'first_name' => $columns[10] ?? null,
+              'last_name' => $columns[11] ?? null,
+              'dob' => $formattedDate ?? null,
+              'phone_no' => $columns['phone'] ?? null,
+              'country' => $columns[15] ?? null,
             ]);
           }
           else {
