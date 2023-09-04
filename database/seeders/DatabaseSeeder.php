@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
           $columns = str_getcsv($row);
 
           $isTrue = false;
-          if ($columns[3] == 'TRUE') $isTrue = true;
+          if (($columns[3] ?? '') == 'TRUE') $isTrue = true;
 
           $formattedDate = null;
           if (!empty($columns[12])) {
@@ -48,6 +48,9 @@ class DatabaseSeeder extends Seeder
             }            
           }
 
+		  if (empty($columns[1])) {
+			  continue;
+		  }
           $emailAlreadyInstered = DB::table('users')->where('email', $columns[1])->first(); 
 
           if (!$emailAlreadyInstered) {
