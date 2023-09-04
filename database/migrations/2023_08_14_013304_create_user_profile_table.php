@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
-            $table->timestamps('dob')->nullable();
+            $table->date('dob')->nullable();
             $table->string('about_me')->nullable();
             $table->string('phone_no')->nullable();
             $table->string('country')->nullable();
