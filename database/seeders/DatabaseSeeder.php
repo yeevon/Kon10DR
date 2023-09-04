@@ -52,20 +52,20 @@ class DatabaseSeeder extends Seeder
 
           if (!$emailAlreadyInstered) {
             DB::table('users')->insert([
-              'email' => $columns[1],
+              'email' => $columns[1] ?? '',
               'verified' => $isTrue,
-              'username' => $columns[9],
-              'member_id' => $columns[0]
+              'username' => $columns[9] ?? '',
+              'member_id' => $columns[0] ?? '',
             ]);
 
             DB::table('user_profile')->insert([
-              'member_id' => $columns[0],
-              'email' => $columns[1],
-              'first_name' => $columns[10],
-              'last_name' => $columns[11],
-              'dob' => $formattedDate ,
-              'phone_no' => $columns['phone'],
-              'country' => $columns[15]
+              'member_id' => $columns[0] ?? '',
+              'email' => $columns[1] ?? '',
+              'first_name' => $columns[10] ?? '',
+              'last_name' => $columns[11] ?? '',
+              'dob' => $formattedDate ?? '',
+              'phone_no' => $columns['phone'] ?? '',
+              'country' => $columns[15] ?? '',
             ]);
           }
           else {
