@@ -2,6 +2,7 @@ import { Link, Head } from "@inertiajs/react";
 import dashboard2 from "../../images/dashboard2.jpeg";
 import gamingController from "../../images/gamingController.jpg";
 import Navbar from "@/components/Navbar";
+import navbarlogo2 from "../../images/navbarlogo2.png";
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
@@ -32,22 +33,42 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     </div>
                 </div>
             </div>
-            <div className="bg-gray-900 m-auto px-4 py-12 flex items-center justify-between">
-                {" "}
-                {/* Add 'space-x-8' to give space between items */}
-                <div className="relative overflow-hidden rounded-lg p-8 py-8">
+            <div className="bg-gray-900 m-auto px-4 py-12 flex flex-col lg:flex-row items-center justify-start space-y-8 lg:space-y-0 lg:space-x-8">
+                <div className="relative overflow-hidden rounded-lg mb-4 lg:mb-0">
                     <img
                         src={gamingController}
                         alt="Controller"
-                        className="object-cover rounded-lg flex-center border-2 border-purple-500 hover:border-purple-600 transition duration-500 ease-in-out max-h-96 w-fit"
+                        className="object-cover rounded-lg border-2 border-purple-500 hover:border-purple-600 transition duration-500 ease-in-out w-96 h-96"
                     />
                     <div className="absolute bottom-10 left-10 bg-black/40 p-1 rounded-lg">
-                        {" "}
-                        {/* Move box to bottom-right */}
                         <span className="text-white font-bold text-5xl md:text-7xl drop-shadow-2xl">
                             N50M+
                         </span>
                         <p className="text-white text-center">Paid to gamers</p>
+                    </div>
+                </div>
+                <div className="flex flex-col items-center space-y-4">
+                    <img
+                        src={navbarlogo2}
+                        alt="Logo"
+                        className="w-24 h-auto mb-2"
+                    />
+                    <p className="text-white font-bold text-3xl">
+                        WE MAKE IT RAIN!!
+                    </p>
+
+                    <div className="flex-1 text-white p-6 max-w-xl">
+                        We are dedicated to empowering gamers and providing them
+                        with opportunities to not only showcase their skills but
+                        also earn substantial rewards. Our commitment to
+                        fostering a thriving gaming community drives us to
+                        create lucrative tournaments and events where gamers can
+                        compete at the highest level and have a chance to earn
+                        significant monetary rewards. Whether you're a casual
+                        gamer or a professional esports athlete, we believe in
+                        your potential and are here to support you on your
+                        journey to success. Join us today and unlock the
+                        possibilities of earning money doing what you love.
                     </div>
                 </div>
             </div>
