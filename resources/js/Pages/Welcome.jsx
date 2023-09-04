@@ -50,7 +50,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             Every Champion was once a Kon10dr so start your
                             Esports career here
                         </p>
-                        <button className="bg-orange-500 hover:bg-orange-600 transition duration-300 ease-in-out px-4 py-2 rounded-full">
+                        <button className="bg-orange-500 hover:bg-orange-600 transition duration-300 ease-in-out px-4 py-2 rounded-full border-none">
                             Sign Up
                         </button>
                         <button className="bg-gray-700 hover:bg-gray-600 transition duration-300 ease-in-out px-4 py-2 border border-gray-800 rounded-full">
@@ -101,7 +101,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 </div>
             </div>
             <div className="relative z-10 pt-20 p-4 flex flex-col items-center">
-                <div className="bg-black bg-opacity-60 p-8 rounded-lg text-center backdrop-blur-md">
+                <div className="bg-opacity-60 p-20 rounded-lg text-center backdrop-blur-sm border border-blue-500">
                     <h2 className="text-3xl mb-4 text-white font-bold">
                         Never miss a beat.
                     </h2>
@@ -109,21 +109,22 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         Sign up for our newsletter and get access to the best
                         things first.
                     </p>
-                    <form className="inline-flex items-center border-4 border-orange-500 rounded-full py-2 w-full mx-auto bg-black bg-opacity-60 p-2 backdrop-blur-md">
+                    <form className="inline-flex items-center border-2 border-orange-500 rounded-full py-1 w-full mx-auto bg-black bg-opacity-60 p-2 backdrop-blur-sm">
                         <input
                             type="email"
                             placeholder="e.g. name@site.com"
-                            className="flex-grow p-3 text-white outline-none focus:outline-none focus:ring-0 border-0 rounded-l-full bg-black bg-opacity-60 backdrop-blur-md"
+                            className="flex-grow p-3 text-white outline-none focus:outline-none focus:ring-0 border-0 rounded-l-full bg-black bg-opacity-0 "
                         />
                         <button
                             type="submit"
-                            className="bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 rounded-full"
+                            className="bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full"
                         >
                             Sign Up
                         </button>
                     </form>
                 </div>
             </div>
+
             <div className="relative bg-gray-900 px-4 py-12 flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8">
                 <div className="flex flex-col items-center space-y-4 lg:flex-grow lg:pr-8">
                     <img
@@ -143,7 +144,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         vibrant community and take your esports journey to new
                         heights!
                     </div>
-                    <button className="relative bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 rounded-full">
+                    <button className="relative bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 rounded-full border-none">
                         Get Started
                     </button>
                 </div>
@@ -239,7 +240,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     </span>
                                 </div>
                                 <div className="mt-6">
-                                    <button className="w-full bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 rounded-full">
+                                    <button className="w-full bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full">
                                         Choose Plan
                                     </button>
                                 </div>
@@ -281,7 +282,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     </span>
                                 </div>
                                 <div className="mt-6">
-                                    <button className="w-full bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 rounded-full">
+                                    <button className="w-full bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full">
                                         Choose Plan
                                     </button>
                                 </div>
