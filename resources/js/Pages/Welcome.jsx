@@ -21,7 +21,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         swipeToSlide: true,
         adaptiveHeight: true,
         centerMode: true,
-        centerPadding: "0px",
+        centerPadding: "80px", // Increase this value to show more of the previous/next images
         focusOnSelect: true,
     };
 
@@ -126,7 +126,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
             </div>
 
             <div className="relative bg-gray-900 px-4 py-12 flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8">
-                <div className="flex flex-col items-center space-y-4 lg:flex-grow lg:pr-8">
+                <div className="flex flex-col items-center space-y-4 lg:pr-8 mx-auto text-center">
                     <img
                         src={navbarlogo2}
                         alt="Logo"
@@ -148,7 +148,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         Get Started
                     </button>
                 </div>
-                <div className="relative overflow-hidden rounded-lg mb-4 lg:mb-0 w-full lg:w-1/3 px-4">
+                <div className="relative overflow-hidden rounded-lg mb-4 lg:mb-0 w-full lg:w-1/2">
                     <Slider {...settings}>
                         <div className="relative">
                             <img
@@ -240,7 +240,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     </span>
                                 </div>
                                 <div className="mt-6">
-                                    <button className="w-full bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full">
+                                    <button className="w-1/4 bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full">
                                         Choose Plan
                                     </button>
                                 </div>
@@ -282,7 +282,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     </span>
                                 </div>
                                 <div className="mt-6">
-                                    <button className="w-full bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full">
+                                    <button className="w-1/4 bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full">
                                         Choose Plan
                                     </button>
                                 </div>
