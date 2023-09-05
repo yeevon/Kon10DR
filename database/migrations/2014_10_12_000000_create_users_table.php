@@ -20,9 +20,9 @@ return new class extends Migration
             $table->boolean('verified')->default(false);
             $table->string('member_redirect')->unique();
             $table->timestamp('last_login')->nullable();
-            $table->string('username')->unique();
+            $table->string('username')->nullable()->unique();
             $table->string('password');
-            $table->string('member_id')->unique();
+            $table->string('member_id')->nullable()->unique();
             $table->rememberToken();
             $table->timestamps();
         });
