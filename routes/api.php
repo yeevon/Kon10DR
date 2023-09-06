@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\UserProfileController;
 use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\TournamentsController;
 
@@ -19,7 +20,14 @@ use App\Http\Controllers\API\TournamentsController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request)
 {
 
-	return $request->user()->givePermissionTo('view tournaments')->can('view tournaments');
+	return $request->user();
+
+});
+
+Route::middleware('auth:sanctum')->group( function ()
+{
+
+	Route::get('profile', [UserProfileController::class, 'index'])->name('profile.view');
 
 });
 
