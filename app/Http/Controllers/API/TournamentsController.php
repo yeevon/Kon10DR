@@ -10,6 +10,13 @@ use App\Http\Resources\TournamentResource;
 
 class TournamentsController extends BaseController
 {
+	const MAX_PAGINATION = 5;
+	public function __construct()
+	{
+		$this->middleware('can:view tournaments', ['only' => ['index','show']]);
+		$this->middleware('can:edit tournaments', ['only' => ['create','store','edit','update','destroy']]);
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -17,7 +24,7 @@ class TournamentsController extends BaseController
 	 */
 	public function index()
 	{
-		$tournaments = Tournaments::all();
+		$tournaments = Tournaments::latest()->paginate(self::MAX_PAGINATION);
 
 		return $this->sendResponse(TournamentResource::collection($tournaments), 'Tournaments retrieved successfully.');
 	}
@@ -40,9 +47,9 @@ class TournamentsController extends BaseController
 			return $this->sendError('Validation Error.', $validator->errors());
 		}
 
-		$product = Product::create($input);
+		$tournament = Tournaments::create($input);
 
-		return $this->sendResponse(new ProductResource($product), 'Product created successfully.');
+		return $this->sendResponse(new TournamentResource($tournament), 'Tournament created successfully.');
 	}
 
 	/**
@@ -53,13 +60,14 @@ class TournamentsController extends BaseController
 	 */
 	public function show($id)
 	{
-		$product = Product::find($id);
 
-		if (is_null($product)) {
+		$tournament = Tournaments::find($id);
+
+		if (is_null($tournament)) {
 			return $this->sendError('Product not found.');
 		}
 
-		return $this->sendResponse(new ProductResource($product), 'Product retrieved successfully.');
+		return $this->sendResponse(new TournamentResource($tournament), 'Tournament retrieved successfully.');
 	}
 
 	/**
@@ -69,8 +77,9 @@ class TournamentsController extends BaseController
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, Product $product)
+	public function update(Request $request, Tournament $tournament)
 	{
+
 		$input = $request->all();
 
 		$validator = Validator::make($input, [
@@ -82,11 +91,11 @@ class TournamentsController extends BaseController
 			return $this->sendError('Validation Error.', $validator->errors());
 		}
 
-		$product->name = $input['name'];
-		$product->detail = $input['detail'];
-		$product->save();
+		$tournament->name = $input['name'];
+		$tournament->detail = $input['detail'];
+		$tournament->save();
 
-		return $this->sendResponse(new ProductResource($product), 'Product updated successfully.');
+		return $this->sendResponse(new TournamentResource($tournament), 'Tournament updated successfully.');
 	}
 
 	/**
@@ -95,10 +104,11 @@ class TournamentsController extends BaseController
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy(Product $product)
+	public function destroy(Tournament $tournament)
 	{
-		$product->delete();
 
-		return $this->sendResponse([], 'Product deleted successfully.');
+		$tournament->delete();
+
+		return $this->sendResponse([], 'Tournament deleted successfully.');
 	}
 }
