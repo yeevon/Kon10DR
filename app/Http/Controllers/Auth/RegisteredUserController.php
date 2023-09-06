@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-		$user->givePermissionTo('view tournaments')
+		$user->givePermissionTo('view tournaments');
 
 		event(new Registered($user));
 
