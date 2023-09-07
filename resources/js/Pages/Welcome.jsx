@@ -30,11 +30,10 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
             <Head title="Welcome" />
             <Navbar />
             <div
-                className="fixed top-0 left-0 w-full h-screen bg-cover bg-center z-0"
+                className="fixed top-0 left-0 w-full min-h-screen h-full bg-cover bg-center z-0"
                 style={{ backgroundImage: `url(${dashboard2})` }}
-            >
-                <div className="bg-black/30 w-full h-full" />
-            </div>
+            ></div>
+            <div className="bg-black/30 w-full h-full" />
             <div className="relative z-10 pt-screen">
                 {" "}
                 {/* pt-screen ensures content starts below the viewport */}
@@ -298,12 +297,12 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
 {
     /* <div
-                className="bg-cover bg-center h-96"
-                style={{ backgroundImage: `url(${dashboard2})` }}
-            >
-                <div className="absolute inset-0 bg-black opacity-50"></div>
-                <div className="flex justify-center items-center h-full">
-                    <div className="p-10 w-100 h-120 bg-white bg-opacity-40 backdrop-blur-md border border-blue-500 rounded text-center">
+    className="bg-cover bg-center h-96"
+    style={{ backgroundImage: `url(${dashboard2})` }}
+    >
+    <div className="absolute inset-0 bg-black opacity-50"></div>
+    <div className="flex justify-center items-center h-full">
+    <div className="p-10 w-100 h-120 bg-white bg-opacity-40 backdrop-blur-md border border-blue-500 rounded text-center">
                         <h2 className="text-orange-600 mb-4">
                             Your Ultimate Esports Destination
                         </h2>
