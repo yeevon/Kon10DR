@@ -29,7 +29,18 @@ function Navbar() {
                     <ul className="flex flex-col w-full h-full items-center justify-center backdrop-blur-md backdrop-filter">
                         <li className="font-bold text-3xl p-8 text-white">
                             PLAY
+                            <button onClick={togglePlaySublist} className="ml-4 text-blue">
+                              {playSublist ? "▲" : "▼"}
+                            </button>
                         </li>
+                        {playSublist && (
+                          <ul className="text-white">
+                            <li className="font-bold text-3xl p-2">GAMES</li>
+                            <li className="font-bold text-3xl p-2">TOURNAMENTS</li>
+                            <li className="font-bold text-3xl p-2">ARENAS</li>
+                            <li className="font-bold text-3xl p-2">CHALLENGES</li>
+                          </ul>
+                        )}
                         <li className="font-bold text-3xl p-8 text-white">
                             NEWS
                         </li>
