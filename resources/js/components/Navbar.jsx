@@ -4,9 +4,25 @@ import navbarlogo2 from "../../images/navbarlogo2.png";
 
 function Navbar() {
     const [nav, setNav] = useState(false);
+    const [playSublist, setPlaySublist] = useState(false);
+    const [playersSublist, setPlayersSublist] = useState(false);
+    const [moreSublist, setMoreSublist] = useState(false);
+
     const toggleNav = () => {
-        setNav((prevState) => !prevState);
+      setNav((prevState) => !prevState);
     };
+
+    const togglePlaySublist = () => {
+      setPlaySublist((prevState) => !prevState);
+    };
+
+    const togglePlayersSublist = () => {
+      setPlayersSublist((prevState) => !prevState)
+    }
+    
+    const toggleMoreSublist = () => {
+      setMoreSublist((prevState) => !prevState)
+    }
 
     return (
         <div className="relative w-full">
@@ -28,31 +44,41 @@ function Navbar() {
                 <div className="fixed left-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex-col z-20">
                     <ul className="flex flex-col w-full h-full items-center justify-center backdrop-blur-md backdrop-filter">
                         <li className="font-bold text-3xl p-8 text-white">
-                            PLAY
-                            <button onClick={togglePlaySublist} className="ml-4 text-blue">
-                              {playSublist ? "▲" : "▼"}
-                            </button>
+                            <a onClick={togglePlaySublist} className="ml-4 text-blue">PLAY</a>
                         </li>
                         {playSublist && (
-                          <ul className="text-white">
-                            <li className="font-bold text-3xl p-2">GAMES</li>
-                            <li className="font-bold text-3xl p-2">TOURNAMENTS</li>
-                            <li className="font-bold text-3xl p-2">ARENAS</li>
-                            <li className="font-bold text-3xl p-2">CHALLENGES</li>
+                          <ul className="text-orange-500 font-bold text-2xl p-2">
+                            <li><a href="/">GAMES</a></li>
+                            <li><a href="/">TOURNAMENTS</a></li>
+                            <li><a href="/">ARENAS</a></li>
+                            <li><a href="/">CHALLENGES</a></li>
                           </ul>
                         )}
                         <li className="font-bold text-3xl p-8 text-white">
-                            NEWS
+                          <a href="/">NEWS</a>
                         </li>
                         <li className="font-bold text-3xl p-8 text-white">
-                            WATCH
+                          <a href="/">WATCH</a>
                         </li>
                         <li className="font-bold text-3xl p-8 text-white">
-                            PLAYERS
+                          <a onClick={togglePlayersSublist} className="ml-4 text-blue">PLAYERS</a>
                         </li>
+                        {playersSublist && (
+                          <ul className="text-orange-500 font-bold text-2xl p-2">
+                            <li><a href="/">TEAMS</a></li>
+                            <li><a href="/">FREE AGENTS</a></li>
+                          </ul>
+                        )}
                         <li className="font-bold text-3xl p-8 text-white">
-                            MORE
+                          <a onClick={toggleMoreSublist} className="ml-4 text-blue">MORE</a>
                         </li>
+                        {moreSublist && (
+                          <ul className="text-orange-500 font-bold text-2xl p-2">
+                            <li><a href="/">ABOUT US</a></li>
+                            <li><a href="/">TERMS OF USE</a></li>
+                            <li><a href="/">PRIVACY POLICY</a></li>
+                          </ul>
+                        )}
                     </ul>
                     <div className="absolute top-4 right-4 z-30">
                         <HiMenuAlt3
