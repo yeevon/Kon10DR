@@ -25,8 +25,8 @@ class TournamentsController extends BaseController
 	public function index()
 	{
 		$tournaments = Tournaments::latest()->paginate(self::MAX_PAGINATION);
-
-		return $this->sendResponse(TournamentResource::collection($tournaments), 'Tournaments retrieved successfully.');
+		TournamentResource::collection($tournaments);
+		return $this->sendResponse($tournaments, 'Tournaments retrieved successfully.');
 	}
 	/**
 	 * Store a newly created resource in storage.
