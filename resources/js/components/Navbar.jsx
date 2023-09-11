@@ -1,3 +1,4 @@
+import { Link } from "@inertiajs/react";
 import React, { useState } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import navbarlogo2 from "../../images/navbarlogo2.png";
@@ -48,25 +49,25 @@ function Navbar() {
                         </li>
                         {playSublist && (
                           <ul className="text-orange-500 font-bold text-2xl p-2">
-                            <li><a href="/">GAMES</a></li>
-                            <li><a href="/">TOURNAMENTS</a></li>
-                            <li><a href="/">ARENAS</a></li>
-                            <li><a href="/">CHALLENGES</a></li>
+                            <li><a href="/Games">GAMES</a></li>
+                            <li><a href="/Tournaments">TOURNAMENTS</a></li>
+                            <li><a href="/Arenas">ARENAS</a></li>
+                            <li><a href="/Challenges">CHALLENGES</a></li>
                           </ul>
                         )}
                         <li className="font-bold text-3xl p-8 text-white">
-                          <a href="/">NEWS</a>
+                          <a href="/News">NEWS</a>
                         </li>
                         <li className="font-bold text-3xl p-8 text-white">
-                          <a href="/">WATCH</a>
+                          <a href="/Watch">WATCH</a>
                         </li>
                         <li className="font-bold text-3xl p-8 text-white">
                           <a onClick={togglePlayersSublist} className="ml-4 text-blue">PLAYERS</a>
                         </li>
                         {playersSublist && (
                           <ul className="text-orange-500 font-bold text-2xl p-2">
-                            <li><a href="/">TEAMS</a></li>
-                            <li><a href="/">FREE AGENTS</a></li>
+                            <li><a href="/Teams">TEAMS</a></li>
+                            <li><a href="/FreeAgents">FREE AGENTS</a></li>
                           </ul>
                         )}
                         <li className="font-bold text-3xl p-8 text-white">
@@ -74,9 +75,9 @@ function Navbar() {
                         </li>
                         {moreSublist && (
                           <ul className="text-orange-500 font-bold text-2xl p-2">
-                            <li><a href="/">ABOUT US</a></li>
-                            <li><a href="/">TERMS OF USE</a></li>
-                            <li><a href="/">PRIVACY POLICY</a></li>
+                            <li><Link href="/AboutUs">ABOUT US</Link></li>
+                            <li><a href="/TermsOfUse">TERMS OF USE</a></li>
+                            <li><a href="/PrivacyPolicy">PRIVACY POLICY</a></li>
                           </ul>
                         )}
                     </ul>
