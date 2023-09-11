@@ -2,12 +2,14 @@ import { Link } from "@inertiajs/react";
 import React, { useState } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import navbarlogo2 from "../../images/navbarlogo2.png";
+import NavLink from "./NavLink"
 
 function Navbar() {
     const [nav, setNav] = useState(false);
     const [playSublist, setPlaySublist] = useState(false);
     const [playersSublist, setPlayersSublist] = useState(false);
     const [moreSublist, setMoreSublist] = useState(false);
+    const navMenuStyling = "font-bold text-3xl p-6 text-orange-500";
 
     const toggleNav = () => {
       setNav((prevState) => !prevState);
@@ -44,40 +46,34 @@ function Navbar() {
             {nav && (
                 <div className="fixed left-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex-col z-20">
                     <ul className="flex flex-col w-full h-full items-center justify-center backdrop-blur-md backdrop-filter">
-                        <li className="font-bold text-3xl p-8 text-white">
-                            <a onClick={togglePlaySublist} className="ml-4 text-blue">PLAY</a>
-                        </li>
+                        <li className={navMenuStyling} onClick={togglePlaySublist}>PLAY</li>
                         {playSublist && (
-                          <ul className="text-orange-500 font-bold text-2xl p-2">
-                            <li><a href="/Games">GAMES</a></li>
-                            <li><a href="/Tournaments">TOURNAMENTS</a></li>
-                            <li><a href="/Arenas">ARENAS</a></li>
-                            <li><a href="/Challenges">CHALLENGES</a></li>
+                          <ul>
+                            <li><NavLink href="/Games">GAMES</NavLink></li>
+                            <li><NavLink href="/Tournaments">TOURNAMENTS</NavLink></li>
+                            <li><NavLink href="/Arenas">ARENAS</NavLink></li>
+                            <li><NavLink href="/Challenges">CHALLENGES</NavLink></li>
                           </ul>
                         )}
-                        <li className="font-bold text-3xl p-8 text-white">
-                          <a href="/News">NEWS</a>
-                        </li>
-                        <li className="font-bold text-3xl p-8 text-white">
-                          <a href="/Watch">WATCH</a>
-                        </li>
-                        <li className="font-bold text-3xl p-8 text-white">
-                          <a onClick={togglePlayersSublist} className="ml-4 text-blue">PLAYERS</a>
+                        <li><NavLink href="/News">NEWS</NavLink></li>
+                        <li><NavLink href="/Watch">WATCH</NavLink></li>
+                        <li className={navMenuStyling}>
+                          <div onClick={togglePlayersSublist}>PLAYERS</div>
                         </li>
                         {playersSublist && (
-                          <ul className="text-orange-500 font-bold text-2xl p-2">
-                            <li><a href="/Teams">TEAMS</a></li>
-                            <li><a href="/FreeAgents">FREE AGENTS</a></li>
+                          <ul>
+                            <li><NavLink href="/Teams">TEAMS</NavLink></li>
+                            <li><NavLink href="/FreeAgents">FREE AGENTS</NavLink></li>
                           </ul>
                         )}
-                        <li className="font-bold text-3xl p-8 text-white">
-                          <a onClick={toggleMoreSublist} className="ml-4 text-blue">MORE</a>
+                        <li className={navMenuStyling}>
+                          <div onClick={toggleMoreSublist}>MORE</div>
                         </li>
                         {moreSublist && (
-                          <ul className="text-orange-500 font-bold text-2xl p-2">
+                          <ul>
                             <li><Link href="/AboutUs">ABOUT US</Link></li>
-                            <li><a href="/TermsOfUse">TERMS OF USE</a></li>
-                            <li><a href="/PrivacyPolicy">PRIVACY POLICY</a></li>
+                            <li><NavLink href="/TermsOfUse">TERMS OF USE</NavLink></li>
+                            <li><NavLink href="/PrivacyPolicy">PRIVACY POLICY</NavLink></li>
                           </ul>
                         )}
                     </ul>
