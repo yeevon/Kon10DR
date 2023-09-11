@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    button {
+        @apply border py-2 px-3;
+    }
+}
+
+.slick-slide {
+    transform: perspective(1000px) rotateY(-60deg);
+    transition: transform 0.5s;
+}
+
+.slick-slide.slick-current {
+    transform: perspective(1000px) rotateY(0deg);
+    z-index: 2;
+}

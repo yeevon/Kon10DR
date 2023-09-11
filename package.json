@@ -2,6 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "docker-php": "docker exec -it php /bin/sh",
         "dev": "vite --host",
         "build": "vite build"
     },
@@ -14,10 +15,11 @@
         "laravel-vite-plugin": "^0.7.5",
         "postcss": "^8.4.27",
         "tailwindcss": "^3.3.3",
-        "vite": "^4.4.9"
+        "vite": "^4.4.9",
+        "wait-on": "^7.0.1"
     },
     "dependencies": {
-        "@esbuild/linux-x64": "^0.19.2",
+        "@esbuild/win32-x64": "^0.19.2",
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/inertia-react": "^0.8.1",
         "@inertiajs/progress": "^0.2.7",
@@ -26,6 +28,9 @@
         "jsconfig.json": "^2.3.3",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-responsive-carousel": "^3.2.23"
+        "react-icons": "^4.10.1",
+        "react-responsive-carousel": "^3.2.23",
+        "react-slick": "^0.29.0",
+        "slick-carousel": "^1.8.1"
     }
 }
