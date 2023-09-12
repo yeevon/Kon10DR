@@ -1,12 +1,31 @@
+import { Link } from "@inertiajs/react";
 import React, { useState } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import navbarlogo2 from "../../images/navbarlogo2.png";
+import NavLink from "./NavLink"
 
 function Navbar() {
     const [nav, setNav] = useState(false);
+    const [playSublist, setPlaySublist] = useState(false);
+    const [playersSublist, setPlayersSublist] = useState(false);
+    const [moreSublist, setMoreSublist] = useState(false);
+    const navMenuStyling = "font-bold text-3xl p-6 text-orange-500";
+
     const toggleNav = () => {
-        setNav((prevState) => !prevState);
+      setNav((prevState) => !prevState);
     };
+
+    const togglePlaySublist = () => {
+      setPlaySublist((prevState) => !prevState);
+    };
+
+    const togglePlayersSublist = () => {
+      setPlayersSublist((prevState) => !prevState)
+    }
+    
+    const toggleMoreSublist = () => {
+      setMoreSublist((prevState) => !prevState)
+    }
 
     return (
         <div className="relative w-full">
@@ -27,21 +46,36 @@ function Navbar() {
             {nav && (
                 <div className="fixed left-0 top-0 w-full h-screen bg-black/90 px-4 py-7 flex-col z-20">
                     <ul className="flex flex-col w-full h-full items-center justify-center backdrop-blur-md backdrop-filter">
-                        <li className="font-bold text-3xl p-8 text-white">
-                            PLAY
+                        <li className={navMenuStyling} onClick={togglePlaySublist}>PLAY</li>
+                        {playSublist && (
+                          <ul>
+                            <li><NavLink href="/Games">GAMES</NavLink></li>
+                            <li><NavLink href="/Tournaments">TOURNAMENTS</NavLink></li>
+                            <li><NavLink href="/Arenas">ARENAS</NavLink></li>
+                            <li><NavLink href="/Challenges">CHALLENGES</NavLink></li>
+                          </ul>
+                        )}
+                        <li><NavLink href="/News">NEWS</NavLink></li>
+                        <li><NavLink href="/Watch">WATCH</NavLink></li>
+                        <li className={navMenuStyling}>
+                          <div onClick={togglePlayersSublist}>PLAYERS</div>
                         </li>
-                        <li className="font-bold text-3xl p-8 text-white">
-                            NEWS
+                        {playersSublist && (
+                          <ul>
+                            <li><NavLink href="/Teams">TEAMS</NavLink></li>
+                            <li><NavLink href="/FreeAgents">FREE AGENTS</NavLink></li>
+                          </ul>
+                        )}
+                        <li className={navMenuStyling}>
+                          <div onClick={toggleMoreSublist}>MORE</div>
                         </li>
-                        <li className="font-bold text-3xl p-8 text-white">
-                            WATCH
-                        </li>
-                        <li className="font-bold text-3xl p-8 text-white">
-                            PLAYERS
-                        </li>
-                        <li className="font-bold text-3xl p-8 text-white">
-                            MORE
-                        </li>
+                        {moreSublist && (
+                          <ul>
+                            <li><Link href="/AboutUs">ABOUT US</Link></li>
+                            <li><NavLink href="/TermsOfUse">TERMS OF USE</NavLink></li>
+                            <li><NavLink href="/PrivacyPolicy">PRIVACY POLICY</NavLink></li>
+                          </ul>
+                        )}
                     </ul>
                     <div className="absolute top-4 right-4 z-30">
                         <HiMenuAlt3
