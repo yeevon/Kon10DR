@@ -16,6 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->binary('image');
+            $table->boolean('featured')->default(0);
+            $table->boolean('active')->default(false);
         });
     }
 
