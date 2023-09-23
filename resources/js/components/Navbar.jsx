@@ -20,7 +20,10 @@ function Navbar() {
                 <img
                     src={navbarlogo2}
                     alt="Navbar Logo"
-                    className="w-24 z-20"
+                    className="w-24 z-20 cursor-pointer"
+                    onClick={() => {
+                        window.location.href = "/";
+                    }}
                 />
                 {!nav && (
                     <HiMenuAlt3
