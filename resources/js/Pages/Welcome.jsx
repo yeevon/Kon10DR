@@ -21,7 +21,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         swipeToSlide: true,
         adaptiveHeight: true,
         centerMode: true,
-        centerPadding: "80px", // Increase this value to show more of the previous/next images
+        centerPadding: "80px",
         focusOnSelect: true,
     };
 
@@ -35,8 +35,6 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
             ></div>
             <div className="bg-black/30 w-full h-full" />
             <div className="relative z-10 pt-screen">
-                {" "}
-                {/* pt-screen ensures content starts below the viewport */}
                 <div className="w-full h-screen flex flex-col justify-center text-white">
                     <div className="md:left-[10%] max-w-[1100px] m-auto p-4">
                         <p style={{ color: "#d97706" }}>

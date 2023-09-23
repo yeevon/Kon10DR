@@ -40,7 +40,6 @@ export default function AboutUs({ auth, laravelVersion, phpVersion }) {
                     </div>
 
                     <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-6 space-y-4 sm:space-y-0">
-                        {/* Column 1 with 3 boxes */}
                         <div className="flex flex-col space-y-4">
                             <Box
                                 title="INNOVATION AND EXCELLENCE:"
@@ -55,8 +54,6 @@ export default function AboutUs({ auth, laravelVersion, phpVersion }) {
                                 description="We create engaging and immersive experiences that captivate and thrill gamers, providing memorable moments and unforgettable adventures."
                             />
                         </div>
-
-                        {/* Column 2 with 3 boxes */}
                         <div className="flex flex-col space-y-4">
                             <Box
                                 title="PASSION FOR GAMING:"
