@@ -27,7 +27,7 @@ export default function Games({ auth, laravelVersion, phpVersion }) {
                 {Array.from({ length: 16 }).map((_, index) => (
                     <div
                         key={index}
-                        className="relative border p-4 hover:border-orange-500 transition duration-300 cursor-pointer"
+                        className="relative p-4 hover:border-orange-500 transition duration-300 cursor-pointer rounded"
                         onClick={() => toggleLike(index)}
                     >
                         <FiHeart
@@ -38,6 +38,7 @@ export default function Games({ auth, laravelVersion, phpVersion }) {
                             } hover:text-red-500 transition duration-300`}
                             size={24}
                         />
+                        {/* Image container with aspect ratio */}
                         <div className="flex items-center justify-center h-48 mb-2 bg-gray-800">
                             <img
                                 src={gamecard}
