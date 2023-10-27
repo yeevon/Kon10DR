@@ -21,7 +21,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         swipeToSlide: true,
         adaptiveHeight: true,
         centerMode: true,
-        centerPadding: "0px",
+        centerPadding: "80px",
         focusOnSelect: true,
     };
 
@@ -30,14 +30,11 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
             <Head title="Welcome" />
             <Navbar />
             <div
-                className="fixed top-0 left-0 w-full h-screen bg-cover bg-center z-0"
+                className="fixed top-0 left-0 w-full min-h-screen h-full bg-cover bg-center z-0"
                 style={{ backgroundImage: `url(${dashboard2})` }}
-            >
-                <div className="bg-black/30 w-full h-full" />
-            </div>
+            ></div>
+            <div className="bg-black/30 w-full h-full" />
             <div className="relative z-10 pt-screen">
-                {" "}
-                {/* pt-screen ensures content starts below the viewport */}
                 <div className="w-full h-screen flex flex-col justify-center text-white">
                     <div className="md:left-[10%] max-w-[1100px] m-auto p-4">
                         <p style={{ color: "#d97706" }}>
@@ -126,7 +123,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
             </div>
 
             <div className="relative bg-gray-900 px-4 py-12 flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8">
-                <div className="flex flex-col items-center space-y-4 lg:flex-grow lg:pr-8">
+                <div className="flex flex-col items-center space-y-4 lg:pr-8 mx-auto text-center">
                     <img
                         src={navbarlogo2}
                         alt="Logo"
@@ -148,7 +145,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         Get Started
                     </button>
                 </div>
-                <div className="relative overflow-hidden rounded-lg mb-4 lg:mb-0 w-full lg:w-1/3 px-4">
+                <div className="relative overflow-hidden rounded-lg mb-4 lg:mb-0 w-full lg:w-1/2">
                     <Slider {...settings}>
                         <div className="relative">
                             <img
@@ -240,7 +237,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     </span>
                                 </div>
                                 <div className="mt-6">
-                                    <button className="w-full bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full">
+                                    <button className="w-1/4 bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full">
                                         Choose Plan
                                     </button>
                                 </div>
@@ -282,7 +279,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     </span>
                                 </div>
                                 <div className="mt-6">
-                                    <button className="w-full bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full">
+                                    <button className="w-1/4 bg-orange-500 hover:bg-orange-600 hover:text-black transition duration-300 ease-in-out px-2 sm:px-4 py-3 border-none rounded-full">
                                         Choose Plan
                                     </button>
                                 </div>
@@ -294,51 +291,4 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
             <Footer />
         </>
     );
-}
-
-{
-    /* <div
-                className="bg-cover bg-center h-96"
-                style={{ backgroundImage: `url(${dashboard2})` }}
-            >
-                <div className="absolute inset-0 bg-black opacity-50"></div>
-                <div className="flex justify-center items-center h-full">
-                    <div className="p-10 w-100 h-120 bg-white bg-opacity-40 backdrop-blur-md border border-blue-500 rounded text-center">
-                        <h2 className="text-orange-600 mb-4">
-                            Your Ultimate Esports Destination
-                        </h2>
-                        <p className="text-white text-xl mb-4">KON10dr.com</p>
-                        <p className="text-white">
-                            Every Champion was once a Kon10dr so start your
-                            Esports career here
-                        </p>
-                    </div>
-                </div>
-                <div className="absolute top-0 right-0 p-6 text-right">
-                    {auth.user ? (
-                        <Link
-                            href={route("dashboard")}
-                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        >
-                            Dashboard
-                        </Link>
-                    ) : (
-                        <>
-                            <Link
-                                href={route("login")}
-                                className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            >
-                                Log in
-                            </Link>
-
-                            <Link
-                                href={route("register")}
-                                className="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                            >
-                                Register
-                            </Link>
-                        </>
-                    )}
-                </div>
-            </div> */
 }

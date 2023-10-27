@@ -17,3 +17,27 @@
     transform: perspective(1000px) rotateY(0deg);
     z-index: 2;
 }
+
+@media (max-width: 400px) {
+    .custom-width {
+        @apply w-screen max-w-full overflow-x-hidden;
+    }
+}
+
+@media (max-height: 900px) {
+    .custom-height {
+        @apply h-screen max-h-full overflow-y-auto;
+    }
+}
+
+@media (max-width: 280px) {
+    .custom-width-280 {
+        @apply w-screen max-w-full overflow-x-hidden;
+    }
+}
+
+@media (max-height: 653px) {
+    .custom-height-653 {
+        @apply h-screen max-h-full overflow-y-auto;
+    }
+}
