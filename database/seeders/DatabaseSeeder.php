@@ -24,6 +24,9 @@ class DatabaseSeeder extends Seeder
 		//     'name' => 'Test User',
 		//     'email' => 'test@example.com',
 		// ]);
+		$this->call([
+			RolesAndPermissionsSeeder::class,
+		]);
 
 		//Get and organize former Kon10dr data
 		$csvFilePath = storage_path('classic_data/member.csv');
