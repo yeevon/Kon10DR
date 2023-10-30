@@ -13,7 +13,11 @@ class TournamentsController extends BaseController
 	const MAX_PAGINATION = 5;
 	public function __construct()
 	{
+
+		// @todo create profile policy
+		// @todo user only can view or subscribe to tournaments
 		$this->middleware('can:view tournaments', ['only' => ['index','show']]);
+		// @todo admin
 		$this->middleware('can:edit tournaments', ['only' => ['create','store','edit','update','destroy']]);
 	}
 
