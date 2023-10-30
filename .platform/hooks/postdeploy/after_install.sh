@@ -8,7 +8,8 @@ sudo cp /opt/elasticbeanstalk/deployment/env /var/www/html/.env && sudo chown ec
 sudo chown webapp:webapp /var/app/current -R
 php /usr/local/bin/composer install
 sudo npm install vite
-npm install
+sudo npm install laravel-mix@latest --save-dev
+sudo npm install
 sudo npm run build
 sudo php artisan cache:clear
 sudo php artisan config:cache
